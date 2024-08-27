@@ -17,10 +17,11 @@ Short reads of repetitive element RNAs could potentially be mapped to multiple l
 ### (3) quantification
 To quantify uniquely aligned reads on the respective TE loci, we used the htseq-count function, part of the HTSeq package with best_match_mm10_TE_annotaion_set.gtf annotation.
 
-### (4) Filtering&normalization
+### (4) filtering&normalization
 After quantification, unexpressed TE copies through spermatogenesis (< Raw read count: 2) were removed, and values of counts per million (CPM) were calculated by dividing raw aligned reads by total uniquely aligned reads. 
 
-
+### (5) Detection of DE TEs
+To detect a differentially expressed TE copy between two biological samples, **a read count output file** was input to the DESeq2 package (version 1.16.1), then the program functions DESeqDataSetFromMatrix and DESeq were used to compare each TE copy’s expression level between two biological samples. Differentially expressed TE copies were identified through two criteria: (1) ≥2-fold change and (2) ≥baseMean 2 in two stages, which are compared. 
 
 
 
