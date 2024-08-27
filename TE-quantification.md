@@ -14,8 +14,12 @@ TE copies that overlapped with exonic regions of a gene annotation set or had lo
 Raw single-end RNA-seq reads in each spermatogenic stage were aligned to the indexed mouse genome (GRCm38/mm10) using STAR aligner version 2.5.3a with **--outFilterMultimapNmax 1** and --sjdbGTFfile./best_match_mm10_TE_annotaion_set.gtf options for unique alignments. 
 Short reads of repetitive element RNAs could potentially be mapped to multiple loci bearing homologous elements; to ensure interpretability of our results at the individual locus level, we **counted only uniquely mapping** RNA-seq reads.
 
+```shell
+--twopassMode Basic；--outSAMtype BAM SortedByCoordinate; --outFilterType BySJout; --outFilterMultimapNmax 1; --winAnchorMultimapNmax 50; --chimSegmentMin 12; --chimJunctionOverhangMin 8; --alignSJoverhangMin 8; --alignSJDBoverhangMin 10; --outFilterMismatchNmax 999; --outFilterMismatchNoverReadLmax 0.04; --alignSJstitchMismatchNmax 5 --1 5; --outSAMattrRGline
+```
+
 ### (3) quantification
-To quantify uniquely aligned reads on the respective TE loci, we used the htseq-count function, part of the HTSeq package with best_match_mm10_TE_annotaion_set.gtf annotation.
+To quantify uniquely aligned reads on the respective TE loci, we used the htseq-count/featureCounts function, part of the HTSeq package with best_match_mm10_TE_annotaion_set.gtf annotation.
 
 ### (4) filtering&normalization
 After quantification, unexpressed TE copies through spermatogenesis (< Raw read count: 2) were removed, and values of counts per million (CPM) were calculated by dividing raw aligned reads by total uniquely aligned reads. 
