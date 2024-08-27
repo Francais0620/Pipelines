@@ -26,11 +26,18 @@ After quantification, unexpressed TE copies through spermatogenesis (< Raw read 
 
 <img width="664" alt="截屏2024-08-27 21 31 21" src="https://github.com/user-attachments/assets/8af3c9ed-7154-42d3-afe0-74a2756fe5b5">
 
-> Yet, notably, the majority of detected TEs were differentially expressed during each transition of spermatogenesis (Fig. 1d and Supplementary Data 1); in particular, 89.0% (18,552/20,853) of expressed TEs were differentially expressed at the KIT+ spermatogonia-to-PS transition (the mitosis-to-meiosis transition). [也即说明TE凡表达，变化的比例都很大]
+> Yet, notably, the majority of detected TEs were differentially expressed during each transition of spermatogenesis (Fig. 1d and Supplementary Data 1); in particular, 89.0% (18,552/20,853) of expressed TEs were differentially expressed at the KIT+ spermatogonia-to-PS transition (the mitosis-to-meiosis transition). [也即说明TE凡表达，变化的比例都很大]((https://www.nature.com/articles/s41594-020-0487-4 fig 1d))
+
+<img width="893" alt="截屏2024-08-27 23 24 13" src="https://github.com/user-attachments/assets/97569fed-e51c-453a-8300-6772fbcb91fe">
+
+> b,c, Violin plots showing the log2-transformed reads per kilobase of exon per million reads mapped (log2RPKM) values of MERVL-int (b) and its LTR promoter, MT2_Mm (c) during preimplantation development. Each plot encompasses box plot; central bars represent medians, box edges indicate 50% of data points and the whiskers show 90% of data points.(https://www.nature.com/articles/s41588-023-01324-y/figures/1 fig.bc)
+
+
 
 
 ### (5) detection of DE TEs
 To detect a differentially expressed TE copy between **two biological samples**, **a read count output file** was input to the DESeq2 package (version 1.16.1), then the program functions DESeqDataSetFromMatrix and DESeq were used to compare each TE copy’s expression level between two biological samples. Differentially expressed TE copies were identified through two criteria: (1) ≥2-fold change and (2) ≥baseMean 2 in two stages, which are compared. 
+
 
 
 
