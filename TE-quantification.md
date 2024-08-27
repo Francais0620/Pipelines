@@ -1,4 +1,32 @@
-# How to quantify TEs properly in our research?
+# How to quantify TEs properly for bulk RNA-seq in our research?
+
+## 1.Only consider the unique mapped reads
+
+[Literature 1](https://www.nature.com/articles/s41594-020-0487-4#Sec10)
+
+> The RNA-seq pipeline for comprehensive quantification of TE copies.
+<img width="477" alt="截屏2024-08-27 18 49 39" src="https://github.com/user-attachments/assets/87cee135-7d78-457c-98c2-3747b568afe7">
+
+### (1) prepare the ‘best match’ TE annotation set
+TE copies that overlapped with exonic regions of a gene annotation set or had low SW scores (≤500 for SINE and DNA transposons and ≤1,000 for other transposons) were removed using the BEDTools64 (version 2.26.0) intersect function and custom Python scripts.
+
+### (2) mapping
+Raw single-end RNA-seq reads in each spermatogenic stage were aligned to the indexed mouse genome (GRCm38/mm10) using STAR aligner version 2.5.3a with **--outFilterMultimapNmax 1** and --sjdbGTFfile./best_match_mm10_TE_annotaion_set.gtf options for unique alignments. 
+Short reads of repetitive element RNAs could potentially be mapped to multiple loci bearing homologous elements; to ensure interpretability of our results at the individual locus level, we **counted only uniquely mapping** RNA-seq reads.
+
+### (3) quantification
+To quantify uniquely aligned reads on the respective TE loci, we used the htseq-count function, part of the HTSeq package with best_match_mm10_TE_annotaion_set.gtf annotation.
+
+### (4) Filtering&normalization
+After quantification, unexpressed TE copies through spermatogenesis (< Raw read count: 2) were removed, and values of counts per million (CPM) were calculated by dividing raw aligned reads by total uniquely aligned reads. 
+
+
+
+
+
+
+
+---
 
 (上次整理的时候，没有把文献链接一起放上来，此处先写个草稿)
 
