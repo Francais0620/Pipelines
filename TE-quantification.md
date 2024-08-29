@@ -42,8 +42,8 @@ To detect a differentially expressed TE copy between **two biological samples**,
 [Literature](https://pubmed.ncbi.nlm.nih.gov/37910626/)
 ### (1) mapping
 
-For the quantification of TE subfamilies, the reads were mapped using STAR aligner with an hg38 index and
-GENCODE version 36 as the guide GTF (--sjdbGTFfile), allowing for a maximum of 100 multimapping loci (--outFilterMultimapNmax 100) and 200 anchors (--winAnchorMultimapNmax). The rest of the parameters affecting the mapping was left in default as for version 2.6.0c.
+For the quantification of TE subfamilies, the reads were mapped using STAR aligner with an hg38 index and
+GENCODE version 36 as the guide GTF (--sjdbGTFfile), allowing for a maximum of 100 multimapping loci (--outFilterMultimapNmax 100) and 200 anchors (--winAnchorMultimapNmax). The rest of the parameters affecting the mapping was left in default as for version 2.6.0c.
 
 ```shell
 --outFilterMultimapNmax 100 --winAnchorMultimapNmax 200
