@@ -33,10 +33,51 @@ After quantification, unexpressed TE copies through spermatogenesis (< Raw read 
 > b,c, Violin plots showing the log2-transformed reads per kilobase of exon per million reads mapped (log2RPKM) values of MERVL-int (b) and its LTR promoter, MT2_Mm (c) during preimplantation development. Each plot encompasses box plot; central bars represent medians, box edges indicate 50% of data points and the whiskers show 90% of data points.(https://www.nature.com/articles/s41588-023-01324-y/figures/1 fig.bc)
 
 
-
-
 ### (5) detection of DE TEs
 To detect a differentially expressed TE copy between **two biological samples**, **a read count output file** was input to the DESeq2 package (version 1.16.1), then the program functions DESeqDataSetFromMatrix and DESeq were used to compare each TE copy’s expression level between two biological samples. Differentially expressed TE copies were identified through two criteria: (1) ≥2-fold change and (2) ≥baseMean 2 in two stages, which are compared. 
+
+
+## 2.Consider multiple mapped reads
+
+[Literature](https://pubmed.ncbi.nlm.nih.gov/37910626/)
+### (1) mapping
+
+For the quantification of TE subfamilies, the reads were mapped using STAR aligner with an hg38 index and
+GENCODE version 36 as the guide GTF (--sjdbGTFfile), allowing for a maximum of 100 multimapping loci (--outFilterMultimapNmax 100) and 200 anchors (--winAnchorMultimapNmax). The rest of the parameters affecting the mapping was left in default as for version 2.6.0c.
+
+```shell
+--outFilterMultimapNmax 100 --winAnchorMultimapNmax 200
+```
+
+### (2) TE subfamily quantification
+
+The TE subfamily quantification was performed using **TEcount** from the TEToolkit (version 2.0.3; RRID:SCR_023208) in mode **multi (--mode)**.GENCODE annotation v36 was used as the input gene GTF (--GTF), and the provided hg38 GTF file from the author’s web server was used as the TE GTF (--TE).
+
+### (3) DE-TEs
+
+We performed differential expression analysis using DESeq2 with the read count matrix from TEcount using only the TE subfamilies entries. Fold changes were shrunk using DESeq2:: lfcShrink.
+Using the gene DESeq2 object (see section above), we normalized the TE subfamily counts by **dividing the read count matrix by the sample distances (sizeFactor) as calculated by DESeq2 with the quantification of genes** without multimapping reads (see the “Bulk
+RNA-seq analysis: Gene quantification” section). For heatmap visualization, a pseudo-count of 0.5 was added and log2-transformed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
