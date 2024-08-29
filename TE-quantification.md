@@ -109,6 +109,8 @@ The read counts were normalized to counts per million (CPM), and fold change was
 
 #### a) Multi-mapped reads were included
 
+> b, Volcano plots showing expression changes of indicated repeats upon L1 CRISPRa (left) and CRISPRi (right), compared with those from NC NCCIT. Padjusted (Padj), DESeq2 analysis based on negative binomial generalized linear model with Benjamini–Hochberg adjustments for multiple comparisons.
+
 ![批注 2024-08-29 173846](https://github.com/user-attachments/assets/b70f6516-36d3-4658-8054-a00b4451ca6a)
 
 https://www.nature.com/articles/s41588-024-01789-5
@@ -117,13 +119,16 @@ figure 3b
 
 #### b) Only considering uniquely mapped reads
 
+>  e, Box plot showing that CTBP1 KO derepresses the CTBP1-bound L1s. n = 4 biological replicates. P value, two-tailed Mann–Whitney–Wilcoxon test. Plots show median and interquartile range (IQR), and whiskers are 1.5-fold IQR.
 
-![批注 2024-08-29 174307](https://github.com/user-attachments/assets/4cb4c80e-5fd2-4392-94a5-5ccb537e0a10)
-
+![image](https://github.com/user-attachments/assets/041b25e4-1152-4d1d-bdbe-6eeba06b649e)
 
 https://www.nature.com/articles/s41588-024-01789-5
 
 figure 2e
+
+
+> e, Line plots showing expression of SIX2 (red, left y axis) and its two cognate L1PA2 (blue, right y axis) in early human embryos with ZGA occurring at the eight-cell stage. 
 
 ![批注 2024-08-29 174402](https://github.com/user-attachments/assets/091a1ed8-8408-474c-b8de-e000b77f385d)
 
@@ -131,11 +136,15 @@ https://www.nature.com/articles/s41588-024-01789-5
 
 figure 4e
 
+> f, Box plots showing expression of L1PA1–L1PA5 (top), their regulated ZGA genes (blue, bottom) and the orthologous genes in rhesus macaque (yellow, bottom), in single cells of early human and rhesus macaque embryos. Plots show median and IQR, and whiskers are 1.5-fold IQR. *P < 0.05; **P < 0.01; ***P < 0.001; two-tailed Mann–Whitney–Wilcoxon test. 
+
 ![批注 2024-08-29 174433](https://github.com/user-attachments/assets/c2bfa437-294d-4bb6-b217-3fd1f3d670e2)
 
 https://www.nature.com/articles/s41588-024-01789-5
 
 figure 4f
+
+> a, Full-length L1 expression in single cells of mouse embryos at indicated stages. Solid line indicates mean. **P < 0.01; ****P < 0.0001; two-tailed Mann–Whitney–Wilcoxon test. Exact P values are in the source data.
 
 ![批注 2024-08-29 174503](https://github.com/user-attachments/assets/26b54f8b-5b50-446f-b10d-2e67a3342e17)
 
