@@ -46,7 +46,7 @@ For the quantification of TE subfamilies, the reads were mapped using STAR alig
 GENCODE version 36 as the guide GTF (--sjdbGTFfile), allowing for a maximum of 100 multimapping loci (--outFilterMultimapNmax 100) and 200 anchors (--winAnchorMultimapNmax). The rest of the parameters affecting the mapping was left in default as for version 2.6.0c.
 
 ```shell
---outFilterMultimapNmax 100 --winAnchorMultimapNmax 200
+--outFilterMultimapNmax 100 --winAnchorMultimapNmax 200
 ```
 
 ### (2) TE subfamily quantification
