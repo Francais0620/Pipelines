@@ -1,5 +1,17 @@
 # How to quantify TEs properly for bulk RNA-seq in our research?
 
+## 0.Propressing
+
+[Literature ](https://pubmed.ncbi.nlm.nih.gov/38849613/)
+
+### (1) QC
+
+FastQC version 0.11.9 was used to evaluate quality scores of raw sequencing reads. 
+
+### (2)trimming
+
+Adaptor and low-quality bases were then trimmed using Trim Galore version 0.6.6 with parameters “-q 20 –phred33 –trim-n –paired”.
+
 ## 1.Only consider the unique mapped reads
 
 [Literature 1](https://www.nature.com/articles/s41594-020-0487-4#Sec10)
@@ -59,19 +71,77 @@ We performed differential expression analysis using DESeq2 with the read count m
 Using the gene DESeq2 object (see section above), we normalized the TE subfamily counts by **dividing the read count matrix by the sample distances (sizeFactor) as calculated by DESeq2 with the quantification of genes** without multimapping reads (see the “Bulk
 RNA-seq analysis: Gene quantification” section). For heatmap visualization, a pseudo-count of 0.5 was added and log2-transformed.
 
+## 3. Different in counting 
+[Literature ](https://pubmed.ncbi.nlm.nih.gov/38849613/)
+
+### (1) TE annotation set
+To avoid confounding between gene and repeat elements expression, we **excluded all the repeats locus that overlap with GENCODE v31/vM23 exons** using bedtools intersect. 
+
+### (2) allow multiple mapping alignment
+Cleaned reads were aligned to the unmasked hg38 or mm10 reference genome with HISAT211 version 2.1.0 (–no-mixed –no-discordant –rna-strandness RF **-k 5** --binSize 10 –normalizeUsing CPM  ).
+
+>  -k <int>           It searches for at most <int> distinct, primary alignments for each read. Primary alignments mean
+                     alignments whose alignment score is equal to or higher than any other alignments. The search terminates
+                     when it cannot find more distinct valid alignments, or when it finds <int>, whichever happens first.
+                     The alignment score for a paired-end alignment equals the sum of the alignment scores of
+                     the individual mates. Each reported read or pair alignment beyond the first has the SAM ‘secondary’ bit
+                     (which equals 256) set in its FLAGS field. For reads that have more than <int> distinct,
+                     valid alignments, hisat2 does not guarantee that the <int> alignments reported are the best possible
+                     in terms of alignment score. Default: 5 (linear index) or 10 (graph index).
+                     Note: HISAT2 is not designed with large values for -k in mind, and when aligning reads to long,
+                     repetitive genomes, large -k could make alignment much slower.
+
+### (3) quantification:consider repetitive reads or not
+
+Known (GENCODE v31 for human, GENCODE vM23 for mouse) and repeat (from UCSC RepeatMasker) transcript coverages were quantified with featureCount version.Reads mapping to the same repeat family were then tabulated together to obtain retrotransposon subfamily-level expression.
+
+```shell
+featureCount -Q 0 -M --fraction #consider repetitive reads
+featureCount  -Q 10 #not consider repetitive reads
+```
+
+### (4) normalization
+
+The read counts were normalized to counts per million (CPM), and fold change was calculated by dividing knockout samples by their corresponding controls.
 
 
+### (5) Figures
+
+#### a) Multi-mapped reads were included
+
+![批注 2024-08-29 173846](https://github.com/user-attachments/assets/b70f6516-36d3-4658-8054-a00b4451ca6a)
+
+https://www.nature.com/articles/s41588-024-01789-5
+
+figure 3b
+
+#### b) Only considering uniquely mapped reads
 
 
+![批注 2024-08-29 174307](https://github.com/user-attachments/assets/4cb4c80e-5fd2-4392-94a5-5ccb537e0a10)
 
 
+https://www.nature.com/articles/s41588-024-01789-5
 
+figure 2e
 
+![批注 2024-08-29 174402](https://github.com/user-attachments/assets/091a1ed8-8408-474c-b8de-e000b77f385d)
 
+https://www.nature.com/articles/s41588-024-01789-5
 
+figure 4e
 
+![批注 2024-08-29 174433](https://github.com/user-attachments/assets/c2bfa437-294d-4bb6-b217-3fd1f3d670e2)
 
+https://www.nature.com/articles/s41588-024-01789-5
 
+figure 4f
+
+![批注 2024-08-29 174503](https://github.com/user-attachments/assets/26b54f8b-5b50-446f-b10d-2e67a3342e17)
+
+https://www.nature.com/articles/s41588-024-01789-5
+
+figure 5a
 
 
 
