@@ -2,6 +2,7 @@
 
 ```r
 library(data.table)
+library(dplyr)
 fa.bed.o<-fread("/home/xxzhang/workplace/project/CRISPRa/expression/ESC-div/TElocal/DEseq2/hg38.fa.out",fill=T,header=T)
 fa.bed<-fa.bed.o[c(-1,-2),]
 colnames(fa.bed) <- c("SW_score", "perc_div", "perc_del", "perc_ins", "query_seq", "pos_in_query_begin", "pos_in_query_end", "pos_in_query_left", "strand", "TE_subfamily", "class_family", "pos_in_repeat_begin", "pos_in_repeat_end", "pos_in_repeat_left", "ID")
