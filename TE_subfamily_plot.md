@@ -8,3 +8,11 @@ cut -f 1 "/home/xxzhang/workplace/project/CRISPRa/expression/brain-dev/TEcount/H
 paste *.counts.txt>merge.txt
 paste rownames.txt merge.txt >merge2.txt
 ```
+
+### 2. exploratory analysis
+
+#### （1）PCA
+
+
+
+#### （2）correlation
