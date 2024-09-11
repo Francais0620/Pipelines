@@ -13,6 +13,8 @@ paste rownames.txt merge.txt >merge2.txt
 
 #### （1）PCA
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
 
 
 #### （2）correlation
