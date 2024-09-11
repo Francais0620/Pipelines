@@ -25,3 +25,14 @@ gunzip -c file.gz > /path/to/destination/file
  dev.off()
 ```
 
+### 3. 在R中，如何查看加载包的版本。
+有时候经常会爆出“版本不一致”的错误，这个时候，我们需要查看目前加载的包的版本。
+```R
+packageVersion("tidyr") #packageVersion("")括号里面是包名
+```
+
+
+
+
+
+
