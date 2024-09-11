@@ -17,3 +17,11 @@ gunzip -c file.gz > /path/to/destination/file
 
 `>` 用于将输出重定向到指定的文件或文件夹。
 
+### 2. 在R中，尤其是在函数中画完图生成pdf的时候，打开图片，爆出文件损坏的错误
+
+```R
+ pdf("gene_correlation_pearson.pdf",width = 4,height = 3)
+ print(p) #不要只是输`p`，要添加`print()`
+ dev.off()
+```
+
