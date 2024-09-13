@@ -36,7 +36,16 @@ packageVersion("tidyr") #packageVersion("")括号里面是包名
 subfamily <- aggregate(. ~ Geneid, data = df_filtered, sum) #类别，数据框，函数
 ```
 
+### 5. 列的拼接和拆分
+* 用paste拼接
+```R
+row.names<-paste(paste(reducedDat$Geneid,reducedDat$Length,sep=":"),1:dim(reducedDat)[1],sep=":")
+```
+* 用separate拆分
+```
+ExtensionDat<- data %>% separate(gene.TE, c("transcript","gene","family","class"),sep = ":") #根据“:”，将数据框data中的gene.TE列拆分为4列，列名分别为"transcript","gene","family","class"。
 
+```
 
 
 
