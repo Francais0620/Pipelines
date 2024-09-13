@@ -31,6 +31,28 @@ gunzip -c file.gz > /path/to/destination/file
 packageVersion("tidyr") #packageVersion("")括号里面是包名
 ```
 
+### 4. 分组进行累加计数
+```R
+subfamily <- aggregate(. ~ Geneid, data = df_filtered, sum) #类别，数据框，函数
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
