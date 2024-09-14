@@ -47,6 +47,24 @@ ExtensionDat<- data %>% separate(gene.TE, c("transcript","gene","family","class"
 
 ```
 
+### 6. 使用grep如何进行精确匹配
+
+```R
+selectedMean[grep("^L1PA8$",selectedMean$TE),"subfamily2"]<-"L1PA8" #有用
+```
+方法归纳：
+* 使用`fixed = TRUE`
+```R
+grep("L1PA8", strings, fixed = TRUE)
+```
+* 使用首尾通配符
+```R
+grep("^L1PA8$", strings)
+```
+`^`表示的是首，`$`表示的是尾。
+
+
+
 
 
 
