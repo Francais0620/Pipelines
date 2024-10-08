@@ -9,3 +9,8 @@ samtools index ENCFF924WKD_labeled.sorted.bam
 ```shell
 cat "/home/xxzhang/workplace/project/CRISPRa/Pacbio/AD_dlPFC/ENCFF924WKD/ENCFF924WKD_labeled.sam" |awk '$3=="chr3" && $4>116360000 && $4<116366026' |wc -l
 ```
+
+### GTF
+```shell
+cat "/home/xxzhang/workplace/project/CRISPRa/Pacbio/CCS_TE/ENCFF854YAZ_TE.3_talon.gtf" |grep "L1PA2_dup1060"
+```
