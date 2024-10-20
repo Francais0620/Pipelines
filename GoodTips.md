@@ -64,7 +64,17 @@ grep("^L1PA8$", strings)
 `^`表示的是首，`$`表示的是尾。
 
 
+### 7. 提取fasta文件/blast建库
 
+```shell
+cat exon.gtf |awk -v OFS="\t" '{print $1,$4,$5,$10,$6,$7}' >exon.bed
+sed -i 's/\"//g' exon.bed
+sed -i 's/\;//g' exon.bed
+awk '!seen[$0]++' exon.bed > exon_no_dup.bed
+bedtools getfasta -fi "/home/xxzhang/data/Genome_reference/Genome/homo_sapiens/hg38/GRCh38.primary_assembly.genome.fa" -bed exon_no_dup.bed -s -name -fo exon.fasta
+awk 'NR % 2 == 1 {print substr($0, 1, 50); next} {print}' exon.fasta >exon_cut50.fasta 
+makeblastdb -in exon_cut50.fasta -dbtype nucl -out exon -parse_seqids
+```
 
 
 
