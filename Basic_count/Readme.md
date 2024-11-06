@@ -18,4 +18,10 @@
 9,5->6,G->-
 
 ### 3.plot.R
-对result.txt文件进行整理，画图。
+对result.txt文件进行整理，画图。distribution_new.pdf，frequency_new.pdf以及count2.pdf为基本的输出的图。
+
+### 4. align.pdf
+align.pdf为geneDoc的输出结果。
+得到的过程如下：
+（1）首先将文件L1PA1-6-unalign.fasta放到clustalw（https://www.genome.jp/tools-bin/clustalw）上进行多序列比对，得到结果文件L1PA1-6-align-clustalw.fasta文件。
+（2）将L1PA1-6-align-clustalw.fasta文件import到geneDoc中，修改呈现的格式（颜色等），最后打印输出pdf。打印输出的pdf可以放到Ai里面进行编辑修改。
