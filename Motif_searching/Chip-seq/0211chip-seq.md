@@ -132,6 +132,13 @@ cat ${URL} | parallel aria2c -x 5 -d ${dir} {}
 
 ```shell
 prefetch --option-file ZNF.txt --output-directory /home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/sra/
+fastq-dump --gzip --split-3 -O /home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/fastq/ "/home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/sra/SRR5197033/SRR5197033.sra"
+fastq-dump --gzip --split-3 -O /home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/fastq/ "/home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/sra/SRR5197067/SRR5197067.sra"
+fastq-dump --gzip --split-3 -O /home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/fastq/ "/home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/sra/SRR5197125/SRR5197125.sra"
+fastq-dump --gzip --split-3 -O /home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/fastq/ "/home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/sra/SRR5197126/SRR5197126.sra"
+fastq-dump --gzip --split-3 -O /home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/fastq/ "/home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/sra/SRR5197135/SRR5197135.sra"
+fastq-dump --gzip --split-3 -O /home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/fastq/ "/home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/sra/SRR5197260/SRR5197260.sra"
+fastq-dump --gzip --split-3 -O /home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/fastq/ "/home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/sra/SRR5197268/SRR5197268.sra"
 ```
 
 
@@ -145,6 +152,14 @@ prefetch --option-file ZNF.txt --output-directory /home/xxzhang/workplace/projec
 gunzip  *.gz #解压
 ls *fastq #可以改名字
 seqkit stats *fastq #基本信息统计
+```
+
+我的：
+```shell
+cd  /home/xxzhang/workplace/project/CRISPRa/chip_seq/GSE78099_KZFP_2017Nature/raw_data/fastq/
+ls  *fastq
+seqkit stats *fastq
+
 ```
 
 ### 2. 批量比对
