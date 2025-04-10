@@ -1,0 +1,19 @@
+#PBS -N sgRNA_screening
+#PBS -q gpu
+#PBS -l nodes=1:ppn=4
+#PBS -l mem=100gb
+#PBS -M 2456392738@qq.com
+#PBS -m abe
+#PBS -o /home/xxzhang/workplace/project/CRISPRa/basic/allTE/logs/sgRNA_screening.out
+#PBS -e /home/xxzhang/workplace/project/CRISPRa/basic/allTE/logs/sgRNA_screening.err
+cd /home/xxzhang/workplace/project/CRISPRa/basic/allTE/script/
+#perl "/home/xxzhang/workplace/project/CRISPRa/gRNA/allTE/gRNA_screenTE_mismatch_strand_minus.pl" -sgRNA L1HS_6k_sgRNA.txt -length 30 -mismatch 0 -fastaindex hg38_bedtools_TE.chr1-Y.processed.final.50.fasta -prefix L1HS_6k
+#perl "/home/xxzhang/workplace/project/CRISPRa/gRNA/allTE/gRNA_screenTE_mismatch_strand_minus.pl" -sgRNA L1PA1_4_6k_sgRNA.txt -length 30 -mismatch 0 -fastaindex hg38_bedtools_TE.chr1-Y.processed.final.50.fasta -prefix L1PA1_4_6k
+#perl "/home/xxzhang/workplace/project/CRISPRa/gRNA/allTE/gRNA_screenTE_mismatch_strand_minus.pl" -sgRNA L1HS_6k_sgRNA.txt -length 30 -mismatch 3 -fastaindex hg38_bedtools_TE.chr1-Y.processed.final.50.fasta -prefix L1HS_6k
+#perl "/home/xxzhang/workplace/project/CRISPRa/gRNA/allTE/gRNA_screenTE_mismatch_strand_minus.pl" -sgRNA L1PA1_4_6k_sgRNA.txt -length 30 -mismatch 3 -fastaindex hg38_bedtools_TE.chr1-Y.processed.final.50.fasta -prefix L1PA1_4_6k
+#perl "/home/xxzhang/workplace/project/CRISPRa/gRNA/allTE/gRNA_screenTE_mismatch_strand_minus.pl" -sgRNA L1HS_sgRNA.txt -length 30 -mismatch 0 -fastaindex hg38_bedtools_TE.chr1-Y.processed.final.50.fasta -prefix L1HS
+#perl "/home/xxzhang/workplace/project/CRISPRa/gRNA/allTE/gRNA_screenTE_mismatch_strand_minus.pl" -sgRNA L1PA1_4_sgRNA.txt -length 30 -mismatch 0 -fastaindex hg38_bedtools_TE.chr1-Y.processed.final.50.fasta -prefix L1PA1_4
+#perl "/home/xxzhang/workplace/project/CRISPRa/gRNA/allTE/gRNA_screenTE_mismatch_strand_minus.pl" -sgRNA L1HS_sgRNA.txt -length 30 -mismatch 3 -fastaindex hg38_bedtools_TE.chr1-Y.processed.final.50.fasta -prefix L1HS
+#perl "/home/xxzhang/workplace/project/CRISPRa/gRNA/allTE/gRNA_screenTE_mismatch_strand_minus.pl" -sgRNA L1PA1_4_sgRNA.txt -length 30 -mismatch 3 -fastaindex hg38_bedtools_TE.chr1-Y.processed.final.50.fasta -prefix L1PA1_4
+perl "/home/xxzhang/workplace/project/CRISPRa/basic/allTE/script/gRNA_screenTE_mismatch_strand_minus.pl" -sgRNA "/home/xxzhang/workplace/project/CRISPRa/sgRNA_30bp_window/result/candidate/L1HS_top4026.txt" -workingdir /home/xxzhang/workplace/project/CRISPRa/basic/allTE/ -length 30 -mismatch 3 -fastaindex hg38_bedtools_TE.chr1-Y.processed.final.50.fasta -prefix L1HS_top4026
+perl "/home/xxzhang/workplace/project/CRISPRa/basic/allTE/script/gRNA_screenTE_mismatch_strand_minus.pl" -sgRNA "/home/xxzhang/workplace/project/CRISPRa/sgRNA_30bp_window/result/candidate/L1PA1_4_top1946.txt" -workingdir /home/xxzhang/workplace/project/CRISPRa/basic/allTE/ -length 30 -mismatch 3 -fastaindex hg38_bedtools_TE.chr1-Y.processed.final.50.fasta -prefix L1PA1_4_top1946
