@@ -1,0 +1,14 @@
+#PBS -N mafft
+#PBS -q fat
+#PBS -l nodes=1:ppn=4
+#PBS -l mem=100gb
+#PBS -M 2456392738@qq.com
+#PBS -m abe
+cd /home/xxzhang/workplace/project/CRISPRa/basic/bed/6kb_fasta/fasta/
+source activate genomics
+#mafft --auto --thread 8 L1PA2_6kb.fasta >align/align_L1PA2_6kb.fasta
+#mafft --auto --thread 8 L1PA3_6kb.fasta >align/align_L1PA3_6kb.fasta
+#mafft --auto --thread 8 L1PA4_6kb.fasta >align/align_L1PA4_6kb.fasta
+#mafft --auto --thread 8 L1PA5_6kb.fasta >align/align_L1PA5_6kb.fasta
+#mafft --auto --thread 8 L1PA6_6kb.fasta >align/align_L1PA6_6kb.fasta
+cat L1PA.txt |parallel -j 8 'mafft --auto --thread 8 {}_6kb.fasta >./align/align_{}_6kb.fasta'
